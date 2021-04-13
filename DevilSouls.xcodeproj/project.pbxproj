@@ -14,6 +14,7 @@
 		1C39FE8526259B65001AD02B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C39FE8426259B65001AD02B /* GameViewController.swift */; };
 		1C39FE8A26259C2A001AD02B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C39FE8926259C2A001AD02B /* GameScene.swift */; };
 		1C39FE8D2625A4B4001AD02B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1C39FE8C2625A4B4001AD02B /* GameScene.sks */; };
+		1C39FE932625BFCF001AD02B /* character.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1C39FE922625BFCF001AD02B /* character.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1C39FE8426259B65001AD02B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		1C39FE8926259C2A001AD02B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		1C39FE8C2625A4B4001AD02B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		1C39FE922625BFCF001AD02B /* character.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = character.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 		1C39FE6A262599E8001AD02B /* DevilSouls iOS */ = {
 			isa = PBXGroup;
 			children = (
+				1C39FE912625BDF0001AD02B /* Supporting Files */,
 				1C39FE8826259C17001AD02B /* Scenes */,
 				1C39FE8326259B4F001AD02B /* ViewControllers */,
 				1C39FE6B262599E8001AD02B /* AppDelegate.swift */,
@@ -92,6 +95,14 @@
 				1C39FE8C2625A4B4001AD02B /* GameScene.sks */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		1C39FE912625BDF0001AD02B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1C39FE922625BFCF001AD02B /* character.atlas */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C39FE8D2625A4B4001AD02B /* GameScene.sks in Resources */,
+				1C39FE932625BFCF001AD02B /* character.atlas in Resources */,
 				1C39FE71262599E8001AD02B /* Main.storyboard in Resources */,
 				1C39FE74262599E8001AD02B /* LaunchScreen.storyboard in Resources */,
 				1C39FE79262599E8001AD02B /* Assets.xcassets in Resources */,
