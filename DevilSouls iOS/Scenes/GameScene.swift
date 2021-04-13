@@ -9,16 +9,21 @@ import UIKit
 import SpriteKit
 
 class GameScene: SKScene {
-    var character = SKSpriteNode()
+    var background = SKSpriteNode(imageNamed: "Background")
+    var character = Character(image: SKSpriteNode(imageNamed: "IcyTowerCharacter"))
+    var floor = Floor(image: SKSpriteNode(imageNamed: "Platform"))
+    
     private var touchLeft = false
     private var touchRight = false
     private var touchUp = false
     
     
     override func didMove(to view: SKView) {
-        if let objectNode = self.childNode(withName: "Character") as? SKSpriteNode {
-            character = objectNode
-        }
+        self.setupBackground()
+        
+        self.addChild(self.character)
+        self.addChild(self.floor)
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -60,5 +65,13 @@ class GameScene: SKScene {
             let moveAction: SKAction = SKAction.moveBy(x: 0, y: 10, duration: 0.5)
             character.run(moveAction)
         }
+    }
+    
+    private func setupBackground() {
+        self.background.position = CGPoint(x: 0, y: 0)
+        self.background.size.width = self.size.width
+        self.background.size.height = self.size.height
+        self.background.zPosition = -1
+        addChild(self.background)
     }
 }
