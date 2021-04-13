@@ -1,0 +1,374 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1C39FE6C262599E8001AD02B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C39FE6B262599E8001AD02B /* AppDelegate.swift */; };
+		1C39FE71262599E8001AD02B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C39FE6F262599E8001AD02B /* Main.storyboard */; };
+		1C39FE74262599E8001AD02B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C39FE72262599E8001AD02B /* LaunchScreen.storyboard */; };
+		1C39FE79262599E8001AD02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C39FE63262599E8001AD02B /* Assets.xcassets */; };
+		1C39FE8526259B65001AD02B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C39FE8426259B65001AD02B /* GameViewController.swift */; };
+		1C39FE8A26259C2A001AD02B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C39FE8926259C2A001AD02B /* GameScene.swift */; };
+		1C39FE8D2625A4B4001AD02B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1C39FE8C2625A4B4001AD02B /* GameScene.sks */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1C39FE63262599E8001AD02B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1C39FE68262599E8001AD02B /* DevilSouls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevilSouls.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C39FE6B262599E8001AD02B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1C39FE70262599E8001AD02B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1C39FE73262599E8001AD02B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1C39FE75262599E8001AD02B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C39FE8426259B65001AD02B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		1C39FE8926259C2A001AD02B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		1C39FE8C2625A4B4001AD02B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1C39FE65262599E8001AD02B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1C39FE5A262599E6001AD02B = {
+			isa = PBXGroup;
+			children = (
+				1C39FE5F262599E7001AD02B /* DevilSouls Shared */,
+				1C39FE6A262599E8001AD02B /* DevilSouls iOS */,
+				1C39FE69262599E8001AD02B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1C39FE5F262599E7001AD02B /* DevilSouls Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1C39FE63262599E8001AD02B /* Assets.xcassets */,
+			);
+			path = "DevilSouls Shared";
+			sourceTree = "<group>";
+		};
+		1C39FE69262599E8001AD02B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C39FE68262599E8001AD02B /* DevilSouls.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1C39FE6A262599E8001AD02B /* DevilSouls iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1C39FE8826259C17001AD02B /* Scenes */,
+				1C39FE8326259B4F001AD02B /* ViewControllers */,
+				1C39FE6B262599E8001AD02B /* AppDelegate.swift */,
+				1C39FE6F262599E8001AD02B /* Main.storyboard */,
+				1C39FE72262599E8001AD02B /* LaunchScreen.storyboard */,
+				1C39FE75262599E8001AD02B /* Info.plist */,
+			);
+			path = "DevilSouls iOS";
+			sourceTree = "<group>";
+		};
+		1C39FE8326259B4F001AD02B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1C39FE8426259B65001AD02B /* GameViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1C39FE8826259C17001AD02B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				1C39FE8926259C2A001AD02B /* GameScene.swift */,
+				1C39FE8C2625A4B4001AD02B /* GameScene.sks */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1C39FE67262599E8001AD02B /* DevilSouls iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C39FE7C262599E8001AD02B /* Build configuration list for PBXNativeTarget "DevilSouls iOS" */;
+			buildPhases = (
+				1C39FE64262599E8001AD02B /* Sources */,
+				1C39FE65262599E8001AD02B /* Frameworks */,
+				1C39FE66262599E8001AD02B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DevilSouls iOS";
+			productName = "DevilSouls iOS";
+			productReference = 1C39FE68262599E8001AD02B /* DevilSouls.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1C39FE5B262599E6001AD02B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					1C39FE67262599E8001AD02B = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 1C39FE5E262599E6001AD02B /* Build configuration list for PBXProject "DevilSouls" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1C39FE5A262599E6001AD02B;
+			productRefGroup = 1C39FE69262599E8001AD02B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1C39FE67262599E8001AD02B /* DevilSouls iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1C39FE66262599E8001AD02B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C39FE8D2625A4B4001AD02B /* GameScene.sks in Resources */,
+				1C39FE71262599E8001AD02B /* Main.storyboard in Resources */,
+				1C39FE74262599E8001AD02B /* LaunchScreen.storyboard in Resources */,
+				1C39FE79262599E8001AD02B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1C39FE64262599E8001AD02B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C39FE8A26259C2A001AD02B /* GameScene.swift in Sources */,
+				1C39FE8526259B65001AD02B /* GameViewController.swift in Sources */,
+				1C39FE6C262599E8001AD02B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1C39FE6F262599E8001AD02B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C39FE70262599E8001AD02B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1C39FE72262599E8001AD02B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C39FE73262599E8001AD02B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1C39FE7A262599E8001AD02B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1C39FE7B262599E8001AD02B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		1C39FE7D262599E8001AD02B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W4AX553T4Z;
+				INFOPLIST_FILE = "DevilSouls iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = devilsSouldCompany.DevilSouls;
+				PRODUCT_NAME = DevilSouls;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1C39FE7E262599E8001AD02B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W4AX553T4Z;
+				INFOPLIST_FILE = "DevilSouls iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = devilsSouldCompany.DevilSouls;
+				PRODUCT_NAME = DevilSouls;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C39FE5E262599E6001AD02B /* Build configuration list for PBXProject "DevilSouls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C39FE7A262599E8001AD02B /* Debug */,
+				1C39FE7B262599E8001AD02B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1C39FE7C262599E8001AD02B /* Build configuration list for PBXNativeTarget "DevilSouls iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C39FE7D262599E8001AD02B /* Debug */,
+				1C39FE7E262599E8001AD02B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1C39FE5B262599E6001AD02B /* Project object */;
+}
