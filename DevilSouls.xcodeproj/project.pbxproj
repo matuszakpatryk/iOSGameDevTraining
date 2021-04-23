@@ -13,8 +13,7 @@
 		1C39FE79262599E8001AD02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C39FE63262599E8001AD02B /* Assets.xcassets */; };
 		1C39FE8526259B65001AD02B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C39FE8426259B65001AD02B /* GameViewController.swift */; };
 		1C39FE8A26259C2A001AD02B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C39FE8926259C2A001AD02B /* GameScene.swift */; };
-		1C39FE8D2625A4B4001AD02B /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1C39FE8C2625A4B4001AD02B /* GameScene.sks */; };
-		1C39FE932625BFCF001AD02B /* character.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1C39FE922625BFCF001AD02B /* character.atlas */; };
+		4D8C6B68263096660036DCB7 /* PhysicsCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8C6B67263096660036DCB7 /* PhysicsCategories.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +25,7 @@
 		1C39FE75262599E8001AD02B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C39FE8426259B65001AD02B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		1C39FE8926259C2A001AD02B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		1C39FE8C2625A4B4001AD02B /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		1C39FE922625BFCF001AD02B /* character.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = character.atlas; sourceTree = "<group>"; };
+		4D8C6B67263096660036DCB7 /* PhysicsCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsCategories.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +67,8 @@
 		1C39FE6A262599E8001AD02B /* DevilSouls iOS */ = {
 			isa = PBXGroup;
 			children = (
+				4D8C6B6B26309FA30036DCB7 /* Types */,
+				4D8C6B66263096530036DCB7 /* Physics */,
 				1C39FE912625BDF0001AD02B /* Supporting Files */,
 				1C39FE8826259C17001AD02B /* Scenes */,
 				1C39FE8326259B4F001AD02B /* ViewControllers */,
@@ -92,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				1C39FE8926259C2A001AD02B /* GameScene.swift */,
-				1C39FE8C2625A4B4001AD02B /* GameScene.sks */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -100,9 +99,23 @@
 		1C39FE912625BDF0001AD02B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1C39FE922625BFCF001AD02B /* character.atlas */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D8C6B66263096530036DCB7 /* Physics */ = {
+			isa = PBXGroup;
+			children = (
+				4D8C6B67263096660036DCB7 /* PhysicsCategories.swift */,
+			);
+			path = Physics;
+			sourceTree = "<group>";
+		};
+		4D8C6B6B26309FA30036DCB7 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Types;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,8 +175,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C39FE8D2625A4B4001AD02B /* GameScene.sks in Resources */,
-				1C39FE932625BFCF001AD02B /* character.atlas in Resources */,
 				1C39FE71262599E8001AD02B /* Main.storyboard in Resources */,
 				1C39FE74262599E8001AD02B /* LaunchScreen.storyboard in Resources */,
 				1C39FE79262599E8001AD02B /* Assets.xcassets in Resources */,
@@ -180,6 +191,7 @@
 				1C39FE8A26259C2A001AD02B /* GameScene.swift in Sources */,
 				1C39FE8526259B65001AD02B /* GameViewController.swift in Sources */,
 				1C39FE6C262599E8001AD02B /* AppDelegate.swift in Sources */,
+				4D8C6B68263096660036DCB7 /* PhysicsCategories.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

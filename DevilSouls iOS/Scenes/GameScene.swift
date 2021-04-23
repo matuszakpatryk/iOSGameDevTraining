@@ -10,114 +10,100 @@ import SpriteKit
 import CoreMotion
 
 class GameScene: SKScene {
-    var label = SKLabelNode(text: "SHEPARD GNOJEK")
     var motion = CMMotionManager()
-    var character = SKSpriteNode()
-    var characterAnimation = [SKTexture]()
-    var characterAnimationAction: SKAction?
+
+    var background: SKSpriteNode!
+    var character: SKSpriteNode!
+    var floor: SKSpriteNode!
+    
     var rightScale: CGFloat = 0
     var leftScale: CGFloat = 0
-    private var touchLeft = false
-    private var touchRight = false
-    private var touchUp = false
     
+    private var isCharacterFlying: Bool = true
     
     override func didMove(to view: SKView) {
-        addChild(label)
+        self.setupCharacter()
+        self.setupFloor()
+        self.setupScene()
         
-        label.position = CGPoint(x: view.frame.width / 2 , y: view.frame.height / 2 )
-        if let objectNode = self.childNode(withName: "Character") as? SKSpriteNode {
-            character = objectNode
-        }
+        self.physicsWorld.contactDelegate = self
         
-        let characterAtlas = SKTextureAtlas(named: "character")
-        
-        for index in 1...characterAtlas.textureNames.count {
-            let imageName = String(format: "character%1d", index)
-            characterAnimation += [characterAtlas.textureNamed(imageName)]
-        }
-        
-        characterAnimationAction = SKAction.repeatForever(SKAction.animate(with: characterAnimation, timePerFrame: 0.1))
         rightScale = character.xScale
         leftScale = character.xScale * (-1)
         
         if motion.isAccelerometerAvailable {
-            self.motion.accelerometerUpdateInterval = 0.5
-            self.motion.deviceMotionUpdateInterval = 0.5
             self.motion.startAccelerometerUpdates()
-            self.motion.startDeviceMotionUpdates()
-            
-            self.motion.startDeviceMotionUpdates(to: OperationQueue.main) { (data, error) in
-                if let validData = data {
-                    print(validData.attitude.yaw)
-                    if validData.attitude.yaw < 0.00 {
-                        self.moveRight()
-                    } else if validData.attitude.yaw > 0.6 {
-                        self.moveLeft()
-                    } else {
-                        self.stop()
-                    }
-                }
-            }
-            
         }
     }
     
     func moveLeft() {
-        stop()
-        touchLeft = true
         character.xScale = leftScale
-        if character.action(forKey: "animation") == nil, let animation = characterAnimationAction {
-            character.run(animation, withKey: "animation")
-        }
     }
     
     func moveRight() {
-        stop()
-        touchRight = true
         character.xScale = rightScale
-        if character.action(forKey: "animation") == nil, let animation = characterAnimationAction {
-            character.run(animation, withKey: "animation")
+    }
+    
+    
+    override func update(_ currentTime: TimeInterval) {
+        if !self.isCharacterFlying {
+            self.isCharacterFlying = true
+            character.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 300))
         }
-    }
-    
-    func stop() {
-        touchUp = false
-        touchRight = false
-        touchLeft = false
-        character.removeAction(forKey: "animation")
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in (touches) {
-            let positionInScene = touch.location(in: self)
-            let touchedNode = self.atPoint(positionInScene)
-            if let name = touchedNode.name {
-                if name == "UpArrow" {
-                    touchUp = true
+        
+        if let accelerometerData = motion.accelerometerData {
+            if accelerometerData.acceleration.x < 0 {
+                moveLeft()
+                character.physicsBody?.applyImpulse(CGVector(dx: accelerometerData.acceleration.x * 5, dy: 0))
+                if character.position.x <= -1 {
+                    character.position.x = self.size.width + 1
+                }
+            } else if accelerometerData.acceleration.x > 0.02 {
+                moveRight()
+                character.physicsBody?.applyImpulse(CGVector(dx: accelerometerData.acceleration.x * 5, dy: 0))
+                if character.position.x >= self.size.width + 1 {
+                    character.position.x = -1
                 }
             }
         }
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touchUp = false
+    private func setupScene() {
+        self.background = SKSpriteNode(imageNamed: "Background")
+        self.background.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        self.background.size = CGSize(width: self.frame.width, height: self.frame.height)
+        self.background.zPosition = -1
+        addChild(self.background)
     }
     
-    override func update(_ currentTime: TimeInterval) {
-        if touchLeft {
-            let moveAction: SKAction = SKAction.moveBy(x: -2, y: 0, duration: 0.5)
-            character.run(moveAction)
-        }
-        
-        if touchRight {
-            let moveAction = SKAction.moveBy(x: 2, y: 0, duration: 0.5)
-            character.run(moveAction)
-        }
-        
-        if touchUp {
-            let moveAction: SKAction = SKAction.moveBy(x: 0, y: 5, duration: 0.5)
-            character.run(moveAction)
+    private func setupCharacter() {
+        self.character = SKSpriteNode(imageNamed: "IcyTowerCharacter")
+        self.character.size = CGSize(width: 70, height: 120)
+        self.character.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        self.character.physicsBody = SKPhysicsBody(rectangleOf: self.character.size)
+        self.character.physicsBody?.categoryBitMask = PhysicsCategories.characterCategory
+        self.character.physicsBody?.contactTestBitMask = PhysicsCategories.floorCategory
+        self.character.physicsBody?.collisionBitMask = PhysicsCategories.floorCategory
+        self.character.physicsBody?.allowsRotation = false
+        self.addChild(self.character)
+    }
+    
+    private func setupFloor() {
+        self.floor = SKSpriteNode(imageNamed: "Platform")
+        self.floor.size = CGSize(width: self.frame.width, height: 30)
+        self.floor.position = CGPoint(x: self.frame.midX, y: self.frame.minY + self.frame.height / 7)
+        self.floor.physicsBody = SKPhysicsBody(rectangleOf: self.floor.size)
+        self.floor.physicsBody?.categoryBitMask = PhysicsCategories.floorCategory
+        self.floor.physicsBody?.isDynamic = false
+        self.addChild(self.floor)
+    }
+}
+
+extension GameScene: SKPhysicsContactDelegate {
+    func didBegin(_ contact: SKPhysicsContact) {
+        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        if contactMask == PhysicsCategories.characterCategory | PhysicsCategories.floorCategory {
+            self.isCharacterFlying = false
         }
     }
 }

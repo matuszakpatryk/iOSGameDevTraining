@@ -11,10 +11,13 @@ import SpriteKit
 class GameViewController: UIViewController {
     
     override func viewDidLoad() {
-        let scene = GameScene(fileNamed: "GameScene")
+        let scene = GameScene(size: view.bounds.size)
+        scene.scaleMode = .aspectFill
         let skView = view as! SKView
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.presentScene(scene)
+        skView.showsFPS = true
+        skView.showsNodeCount = true
     }
 }
