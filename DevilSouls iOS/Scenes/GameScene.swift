@@ -7,97 +7,63 @@
 
 import UIKit
 import SpriteKit
+import CoreMotion
 
 class GameScene: SKScene {
+    var motion = CMMotionManager()
+
     var background: SKSpriteNode!
     var character: SKSpriteNode!
     var floor: SKSpriteNode!
     
-    var leftArrow: SKSpriteNode!
-    var upArrow: SKSpriteNode!
-    var rightArrow: SKSpriteNode!
-    
     var rightScale: CGFloat = 0
     var leftScale: CGFloat = 0
-    var characterAnimationAction: SKAction?
-    var characterAnimation = [SKTexture]()
-    
-    private var touchLeft = false
-    private var touchRight = false
-    private var touchUp = false
     
     private var isCharacterFlying: Bool = true
     
     override func didMove(to view: SKView) {
         self.setupCharacter()
         self.setupFloor()
-        self.setupController()
+        self.setupScene()
         
         self.physicsWorld.contactDelegate = self
         
-        let characterAtlas = SKTextureAtlas(named: "character")
-        
-        for index in 1...characterAtlas.textureNames.count {
-            let imageName = String(format: "character%1d", index)
-            characterAnimation += [characterAtlas.textureNamed(imageName)]
-        }
-        
-        characterAnimationAction = SKAction.repeatForever(SKAction.animate(with: characterAnimation, timePerFrame: 0.1))
         rightScale = character.xScale
         leftScale = character.xScale * (-1)
-        self.setupScene()
         
-    } 
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in (touches) {
-            let positionInScene = touch.location(in: self)
-            let touchedNode = self.atPoint(positionInScene)
-            if let name = touchedNode.name {
-                if name == NodeType.leftArrow.rawValue {
-                    touchLeft = true
-                    character.xScale = leftScale
-                    if character.action(forKey: "animation") == nil, let animation = characterAnimationAction {
-                        character.run(animation, withKey: "animation")
-                    }
-                }
-                if name == NodeType.rightArrow.rawValue {
-                    touchRight = true
-                    character.xScale = rightScale
-                    if character.action(forKey: "animation") == nil, let animation = characterAnimationAction {
-                        character.run(animation, withKey: "animation")
-                    }
-                }
-                if name == NodeType.upArrow.rawValue {
-                    touchUp = true
-                }
-            }
+        if motion.isAccelerometerAvailable {
+            self.motion.startAccelerometerUpdates()
         }
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touchUp = false
-        touchRight = false
-        touchLeft = false
-        character.removeAction(forKey: "animation")
+    func moveLeft() {
+        character.xScale = leftScale
     }
+    
+    func moveRight() {
+        character.xScale = rightScale
+    }
+    
     
     override func update(_ currentTime: TimeInterval) {
-        if touchLeft {
-            let moveAction: SKAction = SKAction.moveBy(x: -1, y: 0, duration: 0.5)
-            character.run(moveAction)
+        if !self.isCharacterFlying {
+            self.isCharacterFlying = true
+            character.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 300))
         }
         
-        if touchRight {
-            let moveAction = SKAction.moveBy(x: 1, y: 0, duration: 0.5)
-            character.run(moveAction)
-        }
-        
-        if touchUp {
-            if !self.isCharacterFlying {
-                self.isCharacterFlying = true
-                let moveAction: SKAction = SKAction.moveBy(x: 0, y: 300, duration: 0.5)
-                character.run(moveAction)
+        if let accelerometerData = motion.accelerometerData {
+            if accelerometerData.acceleration.x < 0 {
+                moveLeft()
+                character.physicsBody?.applyImpulse(CGVector(dx: accelerometerData.acceleration.x * 5, dy: 0))
+                if character.position.x <= -1 {
+                    character.position.x = self.size.width + 1
+                }
+            } else if accelerometerData.acceleration.x > 0.02 {
+                moveRight()
+                character.physicsBody?.applyImpulse(CGVector(dx: accelerometerData.acceleration.x * 5, dy: 0))
+                if character.position.x >= self.size.width + 1 {
+                    character.position.x = -1
+                }
             }
         }
     }
@@ -118,6 +84,7 @@ class GameScene: SKScene {
         self.character.physicsBody?.categoryBitMask = PhysicsCategories.characterCategory
         self.character.physicsBody?.contactTestBitMask = PhysicsCategories.floorCategory
         self.character.physicsBody?.collisionBitMask = PhysicsCategories.floorCategory
+        self.character.physicsBody?.allowsRotation = false
         self.addChild(self.character)
     }
     
@@ -129,29 +96,6 @@ class GameScene: SKScene {
         self.floor.physicsBody?.categoryBitMask = PhysicsCategories.floorCategory
         self.floor.physicsBody?.isDynamic = false
         self.addChild(self.floor)
-    }
-    
-    private func setupController() {
-        let arrowWidth: CGFloat = 30
-        self.leftArrow = SKSpriteNode(imageNamed: "Arrow")
-        self.leftArrow.size = CGSize(width: arrowWidth, height: 40)
-        self.leftArrow.position = CGPoint(x: self.frame.midX - (arrowWidth * 2), y: self.frame.minY + 50)
-        self.leftArrow.zRotation = .pi
-        self.leftArrow.name = NodeType.leftArrow.rawValue
-        self.addChild(leftArrow)
-        
-        self.upArrow = SKSpriteNode(imageNamed: "Arrow")
-        self.upArrow.size = CGSize(width: arrowWidth, height: 40)
-        self.upArrow.position = CGPoint(x: self.frame.midX, y: self.frame.minY + 80)
-        self.upArrow.zRotation = .pi / 2
-        self.upArrow.name = NodeType.upArrow.rawValue
-        self.addChild(upArrow)
-        
-        self.rightArrow = SKSpriteNode(imageNamed: "Arrow")
-        self.rightArrow.size = CGSize(width: arrowWidth, height: 40)
-        self.rightArrow.position = CGPoint(x: self.frame.midX + (arrowWidth * 2), y: self.frame.minY + 50)
-        self.rightArrow.name = NodeType.rightArrow.rawValue
-        self.addChild(rightArrow)
     }
 }
 

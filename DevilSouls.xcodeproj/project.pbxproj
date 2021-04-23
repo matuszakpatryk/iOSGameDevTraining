@@ -13,9 +13,7 @@
 		1C39FE79262599E8001AD02B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C39FE63262599E8001AD02B /* Assets.xcassets */; };
 		1C39FE8526259B65001AD02B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C39FE8426259B65001AD02B /* GameViewController.swift */; };
 		1C39FE8A26259C2A001AD02B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C39FE8926259C2A001AD02B /* GameScene.swift */; };
-		1C39FE932625BFCF001AD02B /* character.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 1C39FE922625BFCF001AD02B /* character.atlas */; };
 		4D8C6B68263096660036DCB7 /* PhysicsCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8C6B67263096660036DCB7 /* PhysicsCategories.swift */; };
-		4D8C6B6D26309FBA0036DCB7 /* NodeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8C6B6C26309FBA0036DCB7 /* NodeType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +25,7 @@
 		1C39FE75262599E8001AD02B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C39FE8426259B65001AD02B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		1C39FE8926259C2A001AD02B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		1C39FE922625BFCF001AD02B /* character.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = character.atlas; sourceTree = "<group>"; };
 		4D8C6B67263096660036DCB7 /* PhysicsCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsCategories.swift; sourceTree = "<group>"; };
-		4D8C6B6C26309FBA0036DCB7 /* NodeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +99,6 @@
 		1C39FE912625BDF0001AD02B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1C39FE922625BFCF001AD02B /* character.atlas */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -119,7 +114,6 @@
 		4D8C6B6B26309FA30036DCB7 /* Types */ = {
 			isa = PBXGroup;
 			children = (
-				4D8C6B6C26309FBA0036DCB7 /* NodeType.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -181,7 +175,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C39FE932625BFCF001AD02B /* character.atlas in Resources */,
 				1C39FE71262599E8001AD02B /* Main.storyboard in Resources */,
 				1C39FE74262599E8001AD02B /* LaunchScreen.storyboard in Resources */,
 				1C39FE79262599E8001AD02B /* Assets.xcassets in Resources */,
@@ -199,7 +192,6 @@
 				1C39FE8526259B65001AD02B /* GameViewController.swift in Sources */,
 				1C39FE6C262599E8001AD02B /* AppDelegate.swift in Sources */,
 				4D8C6B68263096660036DCB7 /* PhysicsCategories.swift in Sources */,
-				4D8C6B6D26309FBA0036DCB7 /* NodeType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6F74EVD2QV;
+				DEVELOPMENT_TEAM = W4AX553T4Z;
 				INFOPLIST_FILE = "DevilSouls iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -363,7 +355,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6F74EVD2QV;
+				DEVELOPMENT_TEAM = W4AX553T4Z;
 				INFOPLIST_FILE = "DevilSouls iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
